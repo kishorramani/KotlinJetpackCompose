@@ -29,55 +29,55 @@ class MainActivity : ComponentActivity() {
             RowData()
         }
     }
+}
 
-    @Composable
-    fun ColumnData() {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Cyan),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceEvenly
-        ) {
-            Text("Kotlin")
-            Text("Jetpack")
-            Text("Compose")
-        }
+@Composable
+fun ColumnData() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Cyan),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceEvenly
+    ) {
+        Text("Kotlin")
+        Text("Jetpack")
+        Text("Compose")
     }
+}
 
-    @Preview
-    @Composable
-    fun ColumnDataPreview() {
-        ColumnData()
+@Preview
+@Composable
+fun ColumnDataPreview() {
+    ColumnData()
+}
+
+@Composable
+fun RowData() {
+    Row(
+        //day2-1
+        /*modifier = Modifier
+            .width(200.dp)
+            .height(300.dp)
+            .background(Color.Magenta),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceAround*/
+
+        //day2-2
+        modifier = Modifier
+            .fillMaxSize(0.5f)
+            .background(Color.Green),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceAround
+    ) {
+        Text("Kotlin")
+        Text("Jetpack")
+        Text("Compose")
     }
+}
 
-    @Composable
-    fun RowData() {
-        Row(
-            //day2-1
-            /*modifier = Modifier
-                .width(200.dp)
-                .height(300.dp)
-                .background(Color.Magenta),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround*/
-
-            //day2-2
-            modifier = Modifier
-                .fillMaxSize(0.5f)
-                .background(Color.Green),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
-        ) {
-            Text("Kotlin")
-            Text("Jetpack")
-            Text("Compose")
-        }
-    }
-
-    @Preview
-    @Composable
-    fun RowDataPreview() {
-        RowData()
-    }
+@Preview
+@Composable
+fun RowDataPreview() {
+    RowData()
 }
