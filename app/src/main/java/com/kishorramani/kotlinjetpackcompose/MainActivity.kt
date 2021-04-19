@@ -53,7 +53,8 @@ fun ImageCard(
             Image(
                 painter = painter,
                 contentDescription = contentDescription,
-                contentScale = ContentScale.Crop
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
             )
             Box(
                 modifier = Modifier
@@ -64,7 +65,7 @@ fun ImageCard(
                                 Color.Transparent,
                                 Color.Black
                             ),
-                            startY = 50f
+                            startY = 200f
                         )
                     )
             )
@@ -85,7 +86,7 @@ fun ImageCard(
 
 @Composable
 fun ImageCardData() {
-    val painter = painterResource(id = R.drawable.engagement)
+    val painter = painterResource(id = R.drawable.mask)
     val title = "Sample Text Title"
     val description = "This is sample Image Description"
     Box(
