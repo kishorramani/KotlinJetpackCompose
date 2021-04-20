@@ -16,7 +16,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val scaffoldState = rememberScaffoldState()
-            val textFieldState = remember {
+            var textFieldState by remember {
                 mutableStateOf("")
             }
             val scope = rememberCoroutineScope()
@@ -46,19 +46,19 @@ class MainActivity : ComponentActivity() {
                 ) {
                     OutlinedTextField(
                         modifier = Modifier.fillMaxWidth(),
-                        value = textFieldState.value,
+                        value = textFieldState,
                         label = {
                             Text(text = "Enter your name")
                         },
                         onValueChange = {
-                            textFieldState.value = it
+                            textFieldState = it
                         },
                         singleLine = true,
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Button(onClick = {
                         scope.launch {
-                            scaffoldState.snackbarHostState.showSnackbar("Hello ${textFieldState.value} !!")
+                            scaffoldState.snackbarHostState.showSnackbar("Hello ${textFieldState} !!")
                         }
                     }) {
                         Text("Please greet me")
